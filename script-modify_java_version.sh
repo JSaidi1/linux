@@ -11,9 +11,9 @@
 # Environment Preparation:
 # For the script to work, you must:
 # -Have the jdk/jre folders with their real names that reflect the real Java version
-# -These directories must be in the same folder. For example, in the /opt folder:
-#       /opt/jdk1.8.0_441 
-#       /opt/jdk-17.0.14
+# -These directories must be in the same folder. For example, in the .../java folder:
+#       .../java/jdk1.8.0_441 
+#       .../java/jdk-17.0.14
 #       ...
 #-----------------------------
 
