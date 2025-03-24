@@ -10,7 +10,7 @@
 #-----------------------------
 # Environment Preparation:
 # For the script to work, you must:
-# -Have the jdk/ire folders with their real names that reflect the real Java version
+# -Have the jdk/jre folders with their real names that reflect the real Java version
 # -These directories must be in the same folder. For example, in the /opt folder:
 #       /opt/jdk1.8.0_441 
 #       /opt/jdk-17.0.14
@@ -19,7 +19,7 @@
 
 #set -x
 
-java_versions_dir="/opt/java/" # /!\: must always be apsolute and have / at the end
+java_versions_dir="/opt/java/" # /!\: must always be absolute and have / at the end
 start_string_to_extract_java_version=$java_versions_dir
 end_string_to_extract_java_version="/bin/java" # /!\: must always Not have / at the end
 choice_word_to_exit="Exit"
