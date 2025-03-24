@@ -6,6 +6,17 @@
 # Realized by: Jabrane SAIDI
 # Bash version: 5.2.21
 #-----------------------------
+
+#-----------------------------
+# Environment Preparation:
+# For the script to work, you must:
+# -Have the jdk/ire folders with their real names that reflect the real Java version
+# -These directories must be in the same folder. For example, in the /opt folder:
+#       /opt/jdk1.8.0_441 
+#       /opt/jdk-17.0.14
+#       ...
+#-----------------------------
+
 #set -x
 
 java_versions_dir="/opt/java/" # /!\: must always be apsolute and have / at the end
@@ -111,7 +122,8 @@ if [ -d "$java_versions_dir" ] && [ "$(ls -A $java_versions_dir)" ]; then
                 read -p "- To apply environment variable changes (JAVA_HOME), the machine must restart. Do you want to restart it? (y/n): " user_answer
                     
                 if [[ "$user_answer" == "y" || "$user_answer" == "Y" ]]; then
-                    reboot
+                    #reboot
+                    systemctl reboot -i
                 else
                     echo -e "\n/!\ Warning: JAVA_HOME variable can't take its new value until you restart the machine!"
                 fi
