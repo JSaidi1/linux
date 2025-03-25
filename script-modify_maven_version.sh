@@ -15,6 +15,7 @@
 #       .../maven/maven-3.9.9 
 #       .../maven/maven-3.8.8
 #       ...
+## -All maven versions must me added to 'update-altarnatives'
 #-----------------------------
 
 #set -x

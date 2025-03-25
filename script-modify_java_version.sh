@@ -15,6 +15,7 @@
 #       .../java/jdk1.8.0_441 
 #       .../java/jdk-17.0.14
 #       ...
+# -All java versions must me added to 'update-altarnatives'
 #-----------------------------
 
 #set -x
