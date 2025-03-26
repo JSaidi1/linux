@@ -20,7 +20,7 @@
 
 #set -x
 
-java_versions_dir="/opt/java/" # /!\: must always be absolute and have / at the end
+java_versions_dir="/opt/languages/java/" # /!\: must always be absolute and have / at the end
 start_string_to_extract_java_version=$java_versions_dir
 end_string_to_extract_java_version="/bin/java" # /!\: must always Not have / at the end
 choice_word_to_exit="Exit"

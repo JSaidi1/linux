@@ -9,7 +9,7 @@ ex:
 sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_441/bin/java 1
 sudo update-alternatives --install /usr/bin/java java /opt/java/jdk-11.0.26/bin/java 2
 sudo update-alternatives --install /usr/bin/java java /opt/java/jdk-17.0.14/bin/java 3
-sudo update-alternatives --install /usr/bin/java java /opt/java/jdk-21.0.6/bin/java 4
+sudo update-alternatives --install /usr/bin/java java /opt/java/jdk-21.0.6/bin/java <priority>
 
 => x is the number priority: the app version with the highest priority will be auto (automatic mode:)
 

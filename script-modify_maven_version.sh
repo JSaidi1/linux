@@ -18,9 +18,9 @@
 ## -All maven versions must me added to 'update-altarnatives'
 #-----------------------------
 
-#set -x
+#set -x 
 
-maven_versions_dir="/opt/maven/" # /!\: must always be absolute and have / at the end
+maven_versions_dir="/opt/build_automation_tools/maven/" # /!\: must always be absolute and have / at the end
 start_string_to_extract_maven_version=$maven_versions_dir
 end_string_to_extract_maven_version="/bin/mvn" # /!\: must always Not have / at the end
 choice_word_to_exit="Exit"
