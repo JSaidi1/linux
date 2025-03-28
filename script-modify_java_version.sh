@@ -9,6 +9,10 @@
 #----------------------------------------------------------------------------------------------------------
 #set -x
 
+## Define variables
+PATH_OF_ENV_FILE=~/.bashrc
+NAME_OF_ENV_FILE="the environment variables file"
+
 ## Function to check if a directory exists
 check_directory() {
     if [ ! -d "$1" ]; then
@@ -17,10 +21,10 @@ check_directory() {
     fi
 }
 
-## Function to check if a file exists
+## Function to check if a file exists ($1 name of env. file - $2 path to path)
 check_file() {
-    if [ ! -f "$1" ]; then
-        echo -e "\n-Error: File does not exist."
+    if [ ! -f "$2" ]; then
+        echo -e "\n-Error: File ($1 '$2') does not exist."
         exit 1
     fi
 }
@@ -45,25 +49,43 @@ check_java_executable() {
     fi
 }
 
+## Function to tell user that Java variable will be defined in the env. file (PATH_OF_ENV_FILE) and ask for confirmation
+ask_user_to_validate_env_file(){
+    while true; do
+        read -p $'\n-Java variable will be defined in the environment file '$1'. Do you want to continue? (yes/no): ' user_response
+        
+        user_response="${user_response,,}"
+
+        if [[ "$user_response" == "yes" ]]; then # Continu processing ...
+            break
+        elif [[ "$user_response" == "no" ]]; then
+            echo -e "\n-Your choice is 'no'. Bye, see you!"
+            echo "N.B: If you want to define an other environment file than '$1', you can define it in 'PATH_OF_ENV_FILE' variable."
+            exit 0
+        else
+            echo "-Please answer with 'yes' or 'no'."
+        fi
+
+    done
+}
+
 # Main function 
 main() {
     
     # Prompt the user to set the path of java folder
-    read -p "Enter the path of java directory: " PATH_JAVA_DIR
+    read -p $'\n-Enter the path of java directory: ' PATH_OF_JAVA_DIR
 
     # Check if the directory exists
-    check_directory "$PATH_JAVA_DIR"
+    check_directory "$PATH_OF_JAVA_DIR"
 
     # Check if the folder is a valid java version folder
-    check_java_executable "$PATH_JAVA_DIR"
-
-    # Prompt the user to set the path of the environment variables file (e.g. .bashrc file)
-    #read -p $'\nEnter the path of environment variables file: ' PATH_VAR_ENV_FILE
-    read -p $'\nChoose in which environment file you want to add java: ' PATH_VAR_ENV_FILE
-    #
-    # Check if the file exists
-    check_file "$PATH_VAR_ENV_FILE"
+    check_java_executable "$PATH_OF_JAVA_DIR"
     
+    # Check if the env. file exists
+    check_file "$NAME_OF_ENV_FILE" "$PATH_OF_ENV_FILE"
+    
+    # Tell user that Java variable will be defined in the env. file (PATH_OF_ENV_FILE) and ask for confirmation
+    ask_user_to_validate_env_file "$PATH_OF_ENV_FILE"
 }
 
 # Call main function
